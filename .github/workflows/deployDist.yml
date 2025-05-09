@@ -7,8 +7,22 @@ jobs:
     test:
         runs-on: ubuntu-latest
         steps:
-            - name: "get code "
-              run: |
-                echo "cloning repo.."
-                echo "${{toJson(github)}}"
-                git clone "https://github.com/${{github.repository}}.git"
+            - name: get code 
+              uses:  actions/checkout@v4
+
+                # echo "cloning repo.."
+                # echo "${{toJson(github)}}"
+                # git clone "https://github.com/${{github.repository}}.git"
+            - name: install node js  
+              uses: actions/setup-node@v4
+              with:
+                node-version: 20
+                check-latest: false
+            - name: node version 
+              run: node -v
+            - name: install dependencies
+            #   run: npm install
+              run: npm ci #npm install se zyada fast hota hai and latest update install krta hai ,automated environments 
+            - name: run test
+              run: npm run test
+                
