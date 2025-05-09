@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://github.com/pawan7409/githubactiondemo",
+  "homepage": "https://pawan7409.github.io/githubactiondemo",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
