@@ -2,7 +2,7 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { describe, test, expect } from 'vitest'
 import App from './App';
-
+// this is command 
 test('renders Github Actions heading', () => {
   render(<App />);
   const headingElement = screen.getByText(/Github Actions/i);
@@ -18,6 +18,6 @@ test('contains an h1 element', () => {
 test('contains an h2 element', () => {
   const { container } = render(<App />);
   const h2Element = container.querySelector('h2');
-  // expect(h2Element).toBeInTheDocument();
-  expect(h2Element).not.toBeInTheDocument();
+  expect(h2Element).toBeInTheDocument();
+  // expect(h2Element).not.toBeInTheDocument();
 });
