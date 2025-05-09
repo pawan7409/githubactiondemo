@@ -37,7 +37,7 @@ jobs:
               run: npm ci #npm install se zyada fast hota hai and latest update install krta hai ,automated environments 
             - name: run test
               run: npm run test
-    Deploy: 
+    Build:
         needs: test
         runs-on: ubuntu-latest
         steps:
@@ -64,6 +64,22 @@ jobs:
             #   run: npm install
               run: npm ci #npm install se zyada fast hota hai and latest update install krta hai ,automated environments
             - name: build project
-              run: npm run build
+              run: npm run build 
+            - name: Upload Dist Artifact
+              uses: actions/upload-artifact@v4
+              with:
+                  name: Dist-artifact
+                  path: dist
+
+    Deploy: 
+        needs: Build
+        runs-on: ubuntu-latest
+        steps:
+            - name: Download Dist Artifact
+              uses:  actions/download-artifact@v4
+              with:
+                  name: Dist-artifact
+                  path: dist
             - name: Deploy
-              run: echo "deployment susccesfully"                   
+
+              run: echo "deployment susccesfully"                      
