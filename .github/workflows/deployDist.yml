@@ -18,6 +18,12 @@ jobs:
               with:
                 node-version: 20
                 check-latest: false
+            - name: cache dependencies
+              uses: actions/cache@v4
+              with:
+                path: ~/.npm
+                #ubuntu-latest-123456575757
+                key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}    
             - name: node version 
               run: node -v
             - name: install dependencies
@@ -40,6 +46,12 @@ jobs:
               with:
                 node-version: 20
                 check-latest: false
+            - name: cache dependencies
+              uses: actions/cache@v4
+              with:
+                path: ~/.npm
+                  #ubuntu-latest-123456575757
+                key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}                
             - name: node version 
               run: node -v
             - name: install dependencies
